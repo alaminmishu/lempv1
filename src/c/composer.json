@@ -1,6 +1,0 @@
-{
-    "require": {
-        "monolog/monolog": "^3.2",
-        "fakerphp/faker": "^1.20"
-    }
-}

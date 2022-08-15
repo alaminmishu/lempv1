@@ -1,0 +1,3 @@
+# ignore c and fw dir
+src/c/**
+src/fw/**
