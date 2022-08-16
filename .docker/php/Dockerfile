@@ -39,3 +39,6 @@ RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUS
 RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 USER $USERNAME
+
+# git config --global user.name "alaminmishu"
+# git config --global user.email aaamishucse@gmail.com

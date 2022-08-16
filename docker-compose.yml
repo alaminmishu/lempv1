@@ -1,11 +1,11 @@
 version: '3.8'
-
 # Services
 services:
 
   # Nginx Service
   nginx:
     image: nginx:1.21
+    container_name: dashphp_nginx
     ports:
       - 80:80
     volumes:
@@ -17,6 +17,7 @@ services:
   # PHP Service
   php:
     build: ./.docker/php
+    container_name: dashphp_php
     working_dir: /var/www/php
     volumes:
       - ./src:/var/www/php
@@ -30,12 +31,13 @@ services:
   # MySQL Service
   mysql:
     image: mysql/mysql-server:8.0
+    container_name: dashphp_mysql
     ports:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: flyphp
+      MYSQL_DATABASE: dashphp
     volumes:
       - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
       - mysqldata:/var/lib/mysql
@@ -47,6 +49,7 @@ services:
   #PhpMyAdmin Service
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5
+    container_name: dashphp_phpmyadmin
     ports:
       - 8080:80
     environment:
